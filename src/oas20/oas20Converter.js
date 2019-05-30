@@ -213,7 +213,7 @@ class Oas20Converter extends Converter {
 								headers.splice(headerNames.indexOf(item.name), 1);
 								const header = new Header();
 								const trait: string = item.trait ? item.trait : '';
-								header.reference = '#/parameters/trait:' + trait + ':' + item.name;
+								header.reference = '#/parameters/trait-' + trait + '-' + item.name;
 								headers.push(header);
 							}
 						} else if (item.type === 'queryParameter' && userMethod && userMethod.parameters && item.trait) {
@@ -223,7 +223,7 @@ class Oas20Converter extends Converter {
 								parameters.splice(parameterNames.indexOf(item.name), 1);
 								const parameter = new Parameter();
 								const trait: string = item.trait ? item.trait : '';
-								parameter.reference = '#/parameters/trait:' + trait + ':' + item.name;
+								parameter.reference = '#/parameters/trait-' + trait + '-' + item.name;
 								parameters.push(parameter);
 							}
 						} else if (item.type === 'response' && userMethod && userMethod.responses && item.trait) {
@@ -233,7 +233,7 @@ class Oas20Converter extends Converter {
 								responses.splice(responseCodes.indexOf(item.name), 1);
 								const response = new Response();
 								response.httpStatusCode = item.name;
-								response.reference = '#/responses/trait:' + item.trait + ':' + item.name;
+								response.reference = '#/responses/trait-' + item.trait + '-' + item.name;
 								responses.push(response);
 								const produces = userMethod.produces ? userMethod.produces : [];
 								for (const m in item.mimeTypes) {

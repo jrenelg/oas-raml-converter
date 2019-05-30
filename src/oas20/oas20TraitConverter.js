@@ -33,14 +33,14 @@ class Oas20TraitConverter extends Converter {
 				if (!trait.parameters.hasOwnProperty(index)) continue;
 				
 				const param = trait.parameters[index];
-				const name = 'trait:' + id + ':' + index;
+				const name = 'trait-' + id + '-' + index;
 				paramsResult[name] = param;
 			}
 			for (const index in trait.responses) {
 				if (!trait.responses.hasOwnProperty(index)) continue;
 				
 				const param = trait.responses[index];
-				const name = 'trait:' + id + ':' + index;
+				const name = 'trait-' + id + '-' + index;
 				responsesResult[name] = param;
 			}
 		}

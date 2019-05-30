@@ -583,7 +583,7 @@ class Oas20MethodConverter extends Converter {
 					const isInPath = this.resourcePath && dereferencedParam && dereferencedParam.in === 'path';
 					const val = (isExternal || isInPath) && dereferencedParam ? dereferencedParam : oasDef.parameters[index];
 					if (val.hasOwnProperty('$ref') && !isInPath) {
-						const regex = /(trait:)(.*)(:.*)/;
+						const regex = /(trait-)(.*)(-.*)/;
 						let traitName = stringsHelper.computeResourceDisplayName(val.$ref);
 						const match = traitName.match(regex);
 						if (match) traitName = match[2];

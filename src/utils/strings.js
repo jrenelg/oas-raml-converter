@@ -13,10 +13,10 @@ module.exports = {
 	},
 	
 	computeTraitName: function (name, key) {
-		let traitName = 'trait:' + _.camelCase(name);
+		let traitName = 'trait-' + _.camelCase(name);
 		
 		if (key) {
-			traitName += ':' + key;
+			traitName += '-' + key;
 		}
 		
 		return traitName;
